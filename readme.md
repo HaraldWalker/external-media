@@ -8,7 +8,7 @@ Plugin for the [Sell Media](http://graphpaperpress.com/plugins/sell-media/) word
 
 Features
 --------
-* Disable purchase option for indivisual items
+* Disable purchase option for indivisual items (or link to external site if set)
 * Set an external purchase link for an item
 * Set an agency to be used in the purchase button/link. (Purchase from X)
 
