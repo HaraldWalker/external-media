@@ -29,6 +29,7 @@ if (!class_exists('externalMedia')) {
 		
 			$not_for_sale = get_post_meta( $post->ID, 'external_media_disabled_sale', true );
 			$sale_link = get_post_meta( $post->ID, 'external_media_sales_link', true );
+			$sale_agency = get_post_meta( $post->ID, 'external_media_agency', true );
 			include ("item-settings.php");
 		}
 		
@@ -49,6 +50,16 @@ if (!class_exists('externalMedia')) {
 					update_post_meta( $post_id, 'external_media_sales_link', $new );
 				} 
 			}
+			if ( isset( $_POST[ 'external_media_agency' ] ) ){
+				$old = get_post_meta( $post_id, 'external_media_agency', true );
+	            $new = $_POST[ 'external_media_agency' ];
+				if ('' == $new) {
+					delete_post_meta( $post_id, 'external_media_agency');
+		        } elseif ( $new && $new != $old ) {
+					update_post_meta( $post_id, 'external_media_agency', $new );
+				}
+			}
+			
 		}
 		
 		function external_media_item_header( $columns ){
@@ -72,7 +83,7 @@ if (!class_exists('externalMedia')) {
 			if ( $sale_disabled && $sale_disabled == '1' ) {
 				$sale_link = get_post_meta( $post_id, 'external_media_sales_link', true );
 				if ( !empty( $sale_link )) {
-					echo "Link";
+					echo '<a target="_blank" href="'.$sale_link.'">Link</a>';
 				} else {
 					echo "X";
 				}
@@ -93,7 +104,11 @@ function external_media_item_buy_button($post_id=null, $button=null, $text=null,
 	if ( $sale_disabled && $sale_disabled == '1' ) {
 		$sale_link = get_post_meta( $post_id, 'external_media_sales_link', true );
 		if ( !empty( $sale_link )) {
+			$agency = get_post_meta( $post_id, 'external_media_agency', true );
 			$text = apply_filters('sell_media_purchase_text', __( $text,'sell_media' ), $post_id );
+			if ( !empty( $agency )) {
+				$text = $text.' from '.external_media_agency_list($agency, false);
+			}
 			$html = '<a href="'.$sale_link.'" class="sell-media-buy-' . $button . '">'.$text.'</a>';	
 		} else {
 			$html = '<div class="sell-media-buy-' . $button . '">not for sale</div>';
@@ -102,6 +117,22 @@ function external_media_item_buy_button($post_id=null, $button=null, $text=null,
 	$html = sell_media_item_buy_button($post_id, $button, $text, $echo);
 	}
 	if ( $echo ) print $html; else return $html;
+}
+
+function external_media_agency_list( $current=null, $create_select=true ){
+    $items = array(
+		"AL" => "Alamy",
+        "GY" => "Getty",
+        "IS" => "iStock",
+		"SY" => "Stocksy",
+        "TS" => "Thinkstock",
+        "CB" => "Corbis"
+        );
+	if ( $create_select ) {
+		sell_media_build_select( $items, array( 'name' => 'external_media_agency', 'required' => false, 'title' => 'Agency', 'current' => $current ) );   
+	} else {
+		return $items[$current];
+	}
 }
 
 
