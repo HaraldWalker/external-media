@@ -14,7 +14,16 @@ Installation
 ------------
 1. Download and place in Wordpress plugin folder
 2. Activate the plugin.
-3. Modify theme template for single sell media item and call external_media_item_buy_button instead of sell_media_item_buy_button
+3. Modify theme template (or create a child theme) for single sell media items and call external_media_item_buy_button instead of sell_media_item_buy_button.
+
+Theme pages to modify or override in sell-photo theme
+-----------------------------------------------------
+* single-sell_media_item.php
+* taxonomy-collection.php
+* taxonomy-keywords.php
+* taxonomy-licenses.php
+* archive-sell_media_item.php
+* author.php
 
 Contributors
 ------------
