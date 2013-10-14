@@ -6,6 +6,12 @@
 		</td>
 	</tr>
 	<tr>
+		<th><label>External agency</label></th>
+		<td>
+			<?php echo external_media_agency_list($sale_agency) ?>
+		</td>
+	</tr>
+	<tr>
 		<th><label>External sales link</label></th>
 		<td>
 			<input id="external_media_sales_link" name="external_media_sales_link" type="text" value="<?php echo $sale_link; ?>" size="120"/>
