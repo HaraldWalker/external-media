@@ -6,9 +6,13 @@ Description
 
 Plugin for the [Sell Media](http://graphpaperpress.com/plugins/sell-media/) wordpress plugin to allow some items to be disabled for sales or link to an external site.
 
-License
--------
-GPLv2 or later
+Features
+--------
+* Disable purchase option for indivisual items
+* Set an external purchase link for an item
+* Set an agency to be used in the purchase button/link. (Purchase from X)
+
+<img width="50%" height="50%" alt="item settings" src="https://dl.dropboxusercontent.com/u/975141/external-media/external-media-plugin-item-settings.png"/>
 
 Installation
 ------------
@@ -28,3 +32,8 @@ Theme pages to modify or override in sell-photo theme
 Contributors
 ------------
 * Please use the `dev` branch on GitHub when making pull request
+
+License
+-------
+GPLv2 or later
+
