@@ -7,6 +7,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 == Description ==
 Plugin for the Sell Media wordpress plugin (http://graphpaperpress.com/plugins/sell-media/) to allow some items to be disabled for sales or link to an external site.
 
+Features
+========
+Disable purchase option for indivisual items (or link to external site if set)
+Set an external purchase link for an item
+Set an agency to be used in the purchase button/link. (Purchase from X)
+
 == Installation ==
 1. Download and place in Wordpress plugin folder
 2. Activate the plugin.
