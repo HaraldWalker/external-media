@@ -52,7 +52,6 @@ if (!class_exists('externalMedia')) {
 		}
 		
 		function external_media_item_header( $columns ){
-
 		    $columns_local = array();        
 			$columns_local['external_media_disabled_sale'] = "Disabled";
 		    return array_merge( $columns_local, $columns );
@@ -94,7 +93,6 @@ function external_media_item_buy_button($post_id=null, $button=null, $text=null,
 	if ( $sale_disabled && $sale_disabled == '1' ) {
 		$sale_link = get_post_meta( $post_id, 'external_media_sales_link', true );
 		if ( !empty( $sale_link )) {
-			echo "Sales link: ".$sale_link;
 			$text = apply_filters('sell_media_purchase_text', __( $text,'sell_media' ), $post_id );
 			$html = '<a href="'.$sale_link.'" class="sell-media-buy-' . $button . '">'.$text.'</a>';	
 		} else {
