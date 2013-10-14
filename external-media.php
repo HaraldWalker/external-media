@@ -109,7 +109,7 @@ function external_media_item_buy_button($post_id=null, $button=null, $text=null,
 			if ( !empty( $agency )) {
 				$text = $text.' from '.external_media_agency_list($agency, false);
 			}
-			$html = '<a href="'.$sale_link.'" class="sell-media-buy-' . $button . '">'.$text.'</a>';	
+			$html = '<a target="_blank" href="'.$sale_link.'" class="sell-media-buy-' . $button . '">'.$text.'</a>';	
 		} else {
 			$html = '<div class="sell-media-buy-' . $button . '">not for sale</div>';
 		}		
