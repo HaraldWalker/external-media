@@ -4,7 +4,7 @@
 Plugin Name: External Media
 Plugin URI: 
 Description: A plugin for sell media to reference external sites
-Version: 0.0.1
+Version: 0.0.2
 Author: Harald Walker
 Author URI: 
 Author Email: walker@mediasculp.com
@@ -14,7 +14,7 @@ License: GPL
 if (!class_exists('externalMedia')) {
 	class externalMedia {
 		function externalMedia() {
-			$this->version = "0.0.1";
+			$this->version = "0.0.2";
 		}
 		
 		function external_media_meta_box($fields=null) {
@@ -126,7 +126,8 @@ function external_media_agency_list( $current=null, $create_select=true ){
         "IS" => "iStock",
 		"SY" => "Stocksy",
         "TS" => "Thinkstock",
-        "CB" => "Corbis"
+        "CB" => "Corbis",
+		"WE" => "Westend61"
         );
 	if ( $create_select ) {
 		sell_media_build_select( $items, array( 'name' => 'external_media_agency', 'required' => false, 'title' => 'Agency', 'current' => $current ) );   
